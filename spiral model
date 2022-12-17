@@ -1,0 +1,50 @@
+For a given two-dimensional integer array/list of size (N x M), print it in a spiral form. That is, you need to print in the order followed for every iteration:
+a. First row(left to right)
+b. Last column(top to bottom)
+c. Last row(right to left)
+d. First column(bottom to top)
+
+solution in java:
+
+
+public class Solution {
+
+	public static void spiralPrint(int matrix[][]){
+		//Your code goes here
+		
+		int rs = 0, cs = 0, ce = matrix[0].length, re = matrix.length, lc = 0, range = -1; 
+
+
+		// first row
+		while(rs<re){
+			for(int i = cs; i<ce; i++){
+				System.out.print(matrix[rs][i]+" ");
+			}
+			rs++;
+			cs++;
+
+			// right column
+
+			for(int i = rs; i<ce; i++ ){
+				System.out.print(matrix[i][ce-1]+" ");
+			}
+			ce--;
+
+			// bottom row
+			for(int i = re-2; i>range; i--){
+				System.out.print(matrix[re-1][i]+" ");
+			}
+			re--;
+			range++;
+
+			// left column
+
+			for(int i =re-1; i>=rs; i--){
+				System.out.print(matrix[i][lc]+" ");
+			}
+			lc++;
+
+		}
+		
+	}
+}
